@@ -9,7 +9,15 @@ import (
 	"testing"
 )
 
-var TCset []*model.TagCategory = []*model.TagCategory{
+type BasicModel interface {
+	Get() error
+	Create() error
+	Delete() error
+	Update() error
+	TableName() string
+}
+
+var TestSet [][]interface{} = [][]interface{}{
 	model.NewTC("rating", "red"),
 	model.NewTC("file_size", "blue"),
 	model.NewTC("artist", "green"),
